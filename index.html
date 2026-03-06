@@ -23,48 +23,71 @@
 
     <main class="container mx-auto text-center">
         <h2 class="text-[#15803D] text-4xl font-semibold  ">Choose Your Trees</h2>
-    </main>
 
 
-    <div class="grid grid-cols-12 gap-5 text-center">
+
+        <div class="grid grid-cols-12 gap-5 text-center">
 
 
-        <!-- categories -->
-        <div class="bg-white shadow-xl rounded-md col-span-3 ">
-            <h2 class="font-medium text-xl">Categories</h2>
+            <!-- categories -->
+            <div class="bg-white shadow-xl rounded-md col-span-3 ">
+                <h2 class="font-medium text-xl">Categories</h2>
 
-            <div class="space-y-3">
-                <button class="btn btn-primary w-full " id="allTrees">All trees</button>
+                <div class="space-y-3 sticky top-8">
+                    <button class="btn btn-primary w-full " id="allTrees">All trees</button>
 
-                <!-- category container -->
-                <div id="categoriesContainer" class="space-y-3">
-                    <!-- categories will be dynamically loaded here -->
+                    <!-- category container -->
+                    <div id="categoriesContainer" class="space-y-3 ">
+                        <!-- categories will be dynamically loaded here -->
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- trees  -->
+
+            <div class="bg-white shadow-xl rounded-md col-span-6 ">
+                <div id="trees-container" class="grid grid-cols-1 md:grid-cols-3 space-y-5  px-4 ">
+
+                    <!-- dynamically added here -->
+
+
+                </div>
+
+                <!-- trees loading spinner -->
+                <div id="loading-spinner" class="h-[60vh] flex justify-center items-center hidden">
+                    <span class="loading loading-dots loading-xl"></span>
                 </div>
             </div>
 
+
+            <div class="bg-blue-500 col-span-3 ">cart</div>
+
         </div>
 
 
-        <!-- trees  -->
-
-        <div class="bg-white shadow-xl rounded-md col-span-6 ">
-            <div id="trees-container" class="grid grid-cols-1 md:grid-cols-3 space-y-5  px-4 ">
-
-                <!-- dynamically added here -->
 
 
+        <!-- product details modal -->
+
+        <!-- Open the modal using ID.showModal() method -->
+        <button class="btn" onclick="tree_details_modal.showModal()">open modal</button>
+        <dialog id="tree_details_modal" class="modal">
+            <div class="modal-box">
+                <h1>This this Modal broh</h1>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
             </div>
-
-         <!-- trees loading spinner -->
-            <div id="loading-spinner" class="h-[60vh] flex justify-center items-center hidden">
-                <span class="loading loading-dots loading-xl"></span>
-            </div>
-        </div>
+        </dialog>
+    </main>
 
 
-        <div class="bg-blue-500 col-span-3 ">cart</div>
 
-    </div>
 
 
     <script src="./script.js"></script>

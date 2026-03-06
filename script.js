@@ -4,6 +4,7 @@
 const categoriesContainer = document.getElementById('categoriesContainer')
 const treesContainer = document.getElementById('trees-container');
 const loadingSpinner = document.getElementById('loading-spinner') ;
+const treeDetailsModal = document.getElementById('tree_details_modal') ;
 
 
 // function for loading spinner
@@ -71,7 +72,27 @@ async function selectCategory(categoryId , btn){
 }
 
 
+// dynamic for all btn 
 
+document.getElementById('allTrees').addEventListener('click' , ()=>{
+       const allButton = document.querySelectorAll('#categoriesContainer button , #allTrees') ;
+    
+    // step 1 -- every button make btn outline
+    allButton.forEach(btn => {
+        btn.classList.remove('btn-primary') ;
+        btn.classList.add('btn-outline')
+        
+    })
+
+    document.getElementById('allTrees').classList.add('btn-primary') ;  
+    document.getElementById('allTrees').classList.remove('btn-outline') ;
+
+    loadTrees()
+
+
+
+    
+})
 
 
 // function for trees 
@@ -103,7 +124,7 @@ function displayTrees(trees) {
                             alt="${tree.name}" title = '${tree.name}' />
                     </figure>
                     <div class="card-body p-2">
-                        <h2 class="card-title">${tree.name}</h2>
+                        <h2 class="card-title cursor-pointer hover:text-green-700 " onclick="openTreeModal(${tree.id})">${tree.name}</h2>
                         <p class="text-sm text-left line-clamp-2">${tree.description}
                         </p>
                         <div class="badge  badge-outline badge-success bg-green-100">${tree.category}</div>
@@ -121,6 +142,25 @@ function displayTrees(trees) {
         
     })
 
+}
+
+
+
+
+
+// function for modal
+
+async function openTreeModal(treeId){
+    console.log("treeId" , treeId) ;
+
+    treeDetailsModal
+
+    const res =await fetch(`https://openapi.programming-hero.com/api/plant/${treeId}`) ;
+    const data =await res.json() ;
+
+    const plantDetails = data.plants ;
+    console.log(plantDetails , data)
+    treeDetailsModal.showModal() ;
 }
 
 
