@@ -5,34 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
 
-    <!-- link with css -->
-
-    <link rel="stylesheet" href="./style.css">
+    
 
     <!-- Tailwind and daisyUI -->
      <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- link with css -->
+
+    <!-- <link rel="stylesheet" href="./style.css"> -->
 
 
 </head>
 <body>
    
     <main class="container mx-auto text-center">
-        <h2 class="text-[#15803D] text-4xl font-semibold ">Choose Your Trees</h2>
+        <h2 class="text-[#15803D] text-4xl font-semibold  ">Choose Your Trees</h2>
     </main>
 
 
-    <div class="grid grid-cols-12 gap-8">
+    <div class="grid grid-cols-12 gap-8 text-center">
 
-        <div class="bg-red-500 col-span-3">
-            <h2 class="font-medium text-xl">Categories</h2>
+
+        <!-- categories -->
+        <div class="bg-white shadow-xl rounded-md col-span-3 ">
+            <h2 class="font-medium text-xl">Categories</h2> 
+          
+            <div class="space-y-3">
+                  <button class="btn btn-success w-full " id="allTrees">All trees</button>
+
+            <!-- category container -->
+             <div id="categoriesContainer" class="space-y-3">
+                <!-- categories will be dynamically loaded here -->
+             </div>
+            </div>
+
         </div>
         <div class="bg-green-500 col-span-6">trees</div>
-        <div class="bg-blue-500 col-span-3">cart</div>
+        <div class="bg-blue-500 col-span-3 ">cart</div>
 
     </div>
     
 
-    
+    <script src="./script.js"></script>
 </body>
 </html>
